@@ -135,6 +135,9 @@ body {
     html {
         font-size: 45%;
     }
+    .navbar .navbar-logo{
+        margin:0 2rem 0 -8rem;
+    }
 }
 
 /* SMALL(TABLET) */
