@@ -209,8 +209,8 @@ body {
         background-image: url("mobile-coffee.png");
         background-size: cover;
         background-position: center;
-        width: 480px;
-        height: 900px;
+        width: 450px;
+        height: 720px;
     }
     .hero h1 {
         margin-top: 20rem;
