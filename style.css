@@ -210,16 +210,19 @@ body {
         background-size: cover;
         background-position: center;
         width: 450px;
-        height: 720px;
+        height: 900px;
     }
     .hero h1 {
         margin-top: 20rem;
     }
     .hero p {
         font-weight: 0;
-        font-size: 3rem;
+        font-size: 10rem;
         font-weight: 10rem;
         text-shadow: 2px 2px 6px rgba(1, 1, 1, 0.6);
+    }
+    .hero .call-to-action {
+        font-size: 2.5rem;
     }
 }
 
