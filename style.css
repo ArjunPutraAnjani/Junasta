@@ -1,0 +1,177 @@
+:root {
+    --primary: #b67845;
+    --bg: #010101;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: "Poppins", Sans-Serif;
+    background-color: var(--bg);
+    color: #010101;
+}
+
+/* Navbar */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3%;
+    background-color: rgba(1.1.1.0.8);
+    border-bottom: 1px solid #633c1d;
+    flex-wrap: wrap;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+.img-wrapper {
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+    overflow: hidden;
+    border-radius: 50%;
+    position: relative;
+    margin-left: 5rem;
+}
+
+.logo {
+    width: 9.6rem;
+    height: auto;
+    position: absolute;
+    top: -3.26rem;
+    left: -3.47rem;
+}
+
+.navbar .navbar-logo {
+    font-size: 2rem;
+    margin: 0 2rem 0 -10rem;
+    font-family: "Poppins";
+    color: #fff;
+    font-weight: 700;
+    font-style: italic;
+}
+.navbar .navbar-logo span {
+    color: var(--primary);
+}
+/* Navbar Links */
+
+.navbar .navbar-nav a {
+    color: #fff;
+    display: inline-block;
+    font-size: 1.5rem;
+    margin: 0 1rem;
+}
+.navbar .navbar-nav a:hover {
+    color: var(--primary);
+}
+
+/* ANIMASI NAVBAR LINKS */
+
+.navbar .navbar-nav a::after {
+    content: "";
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.1rem solid var(--primary);
+    transform: scaleX(0);
+    transition: 0.2s linear;
+}
+.navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.5);
+}
+
+/* MENU */
+
+.navbar .navbar-extra a {
+    color: #fff;
+    margin: 0 0.5rem;
+}
+.navbar .navbar-extra a:hover {
+    color: var(--primary);
+}
+#hamburger-menu {
+    display: inline-block;
+}
+
+/* SIDE BAR */
+
+.navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: #fff;
+    width: 30rem;
+    height: 100vh;
+}
+.navbar .navbar-nav.active {
+    right: 0;
+}
+.navbar .navbar-nav a {
+    color: var(--bg);
+    display: block;
+    margin: 1.5rem;
+    padding: 0.5;
+    font-size: 2rem;
+}
+.navbar .navbar-nav a::after {
+    transform-origin: 0 0;
+}
+
+/* RESPONSIVE MEDIA QUERY */
+
+/* EXTRA SMALL(MOBILE PHONE) */
+
+@media (max-width: 575.98px) {
+    html {
+        font-size: 45%;
+    }
+}
+
+/* SMALL(TABLET) */
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    html {
+        font-size: 62.5%;
+    }
+    .navbar .navbar-logo {
+        margin: 0 2rem 0 -30rem;
+    }
+    .logo {
+        width: 9.7rem;
+        height: auto;
+        position: absolute;
+        top: -3.27rem;
+        left: -3.5rem;
+    }
+}
+
+/* MEDIUM(LAPTOP) */
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    html {
+        font-size: 75%;
+    }
+}
+
+/*LARGE (DESKTOP) */
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    html {
+        font-size: 87.2%;
+    }
+}
+
+/* EXTRA LARGE */
+
+@media (min-width: 1200px) {
+}
