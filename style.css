@@ -3,6 +3,7 @@
     --bg: #010101;
 }
 
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -12,21 +13,20 @@
     text-decoration: none;
 }
 
+/* Global */
 body {
     font-family: "Poppins", Sans-Serif;
     background-color: var(--bg);
     color: #010101;
-    /*min-height: 2000px;*/
 }
+
 .container {
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 0.5rem;
-    padding-left: 0.5rem;
+    margin: 0 auto;
+    padding: 0 0.5rem;
 }
-/* Navbar */
 
+/* Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -42,7 +42,7 @@ body {
     z-index: 99999;
 }
 
-.img-wrapper {
+.wrapper {
     display: flex;
     width: 3rem;
     height: 3rem;
@@ -60,7 +60,7 @@ body {
     left: -3.48rem;
 }
 
-.navbar .navbar-logo {
+.navbar .navbar-brand {
     font-size: 2rem;
     margin: 0 2rem 0 -10rem;
     font-family: "Poppins";
@@ -68,93 +68,116 @@ body {
     font-weight: 700;
     font-style: italic;
 }
-.navbar .navbar-logo span {
+
+.navbar .navbar-brand span {
     color: var(--primary);
 }
-/* Navbar Links */
 
+/* Navbar Links */
 .navbar .navbar-nav a {
     color: #fff;
     display: inline-block;
     font-size: 1.5rem;
     margin: 0 1rem;
+    position: relative;
 }
+
 .navbar .navbar-nav a:hover {
     color: var(--primary);
 }
 
-/* ANIMASI NAVBAR LINKS */
-
+/* Animasi underlines */
 .navbar .navbar-nav a::after {
     content: "";
     display: block;
     padding-bottom: 0.5rem;
     border-bottom: 0.1rem solid var(--primary);
     transform: scaleX(0);
-    transition: 0.2s linear;
+    transition: transform 0.2s linear;
 }
+
 .navbar .navbar-nav a:hover::after {
     transform: scaleX(0.5);
 }
 
-/* MENU */
-
-.navbar .navbar-extra a {
+/* MENU ICON */
+.navbar .navbar-icon a {
     color: #fff;
     margin: 0 0.5rem;
 }
-.navbar .navbar-extra a:hover {
+.navbar .navbar-icon a:hover {
     color: var(--primary);
 }
+
 #hamburger-menu {
     display: none;
 }
 
 /* HERO SECTION */
 .hero {
+    position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background-image: url("Brown Modern Coffee.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    position: relative;
 }
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
 .hero::after {
     content: "";
-    display: block;
     position: absolute;
+    bottom: 0;
     width: 100%;
     height: 30%;
-    bottom: 0;
     background: linear-gradient(
         0deg,
         rgba(1, 1, 3, 1) 8%,
         rgba(99, 6, 29, 0) 50%
     );
+    z-index: 1;
 }
+
 .hero .content {
+    position: relative;
+    z-index: 2;
     padding: 2rem;
     max-width: 60rem;
+    margin: 0 auto;
+    text-align: center;
 }
+
 .hero .content h1 {
     font-size: 5em;
     color: #fff;
-    text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     line-height: 1.2;
 }
-.hero .content span {
+
+.hero .content h1 span {
     color: var(--primary);
 }
+
 .hero .content p {
     font-size: 1.6rem;
     margin-top: 1rem;
     line-height: 1.4;
     font-weight: 100;
     color: #fff;
-    text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
+
 .hero .content .call-to-action {
     margin-top: 1rem;
     display: inline-block;
@@ -163,82 +186,94 @@ body {
     color: #fff;
     background-color: var(--primary);
     border-radius: 0.5rem;
-    box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s;
 }
 
-/* RESPONSIVE MEDIA QUERY */
+.hero .content .call-to-action:hover {
+    background-color: #935d2f;
+}
 
-/* Mobile */
-@media (max-width: 450px) {
-     html {
-    font-size: 45%;
-      }
+/* RESPONSIVE MEDIA QUERIES */
+
+/* Mobile: max-width 450px */
+@media (max-width: 480px) {
+    html {
+        font-size: 55%;
+    }
+
     .container {
         width: 90%;
     }
-      .navbar {
-    background-color: #383e42;
-      }
-      #hamburger-menu {
-    display: inline-block;
-      }
-      .img-wrapper {
-    margin: -6rem 0 -6rem 0;
-      }
-      .navbar .navbar-logo {
-    margin: 0 -4rem 0 -6rem;
-      }
-      .navbar .navbar-nav {
-    position: absolute;
-    top: 100%;
-    right: -100%;
-    background-color: #0c0b0d;
-    width: 30rem;
-    height: 100vh;
-    transition: 0.3s;
-      }
-      
-      .navbar .navbar-nav.active {
-    right: 0%;
-      }
-      .navbar .navbar-nav a {
-    color: #fff;
-    display: block;
-    margin: 1.5rem;
-    padding: 0.5;
-    font-size: 2rem;
-      }
-      .navbar .navbar-nav a::after {
-    transform-origin: 0 0;
-      }
-      .navbar .navbar-nav a:hover::after {
-    transform: scaleX(0.2);
-      }
-      .hero {
-    background-image: url("mobile-coffee.png");
-    background-size: cover;
-    background-position: center;
-    max-width: 100%;
-    height: 100%;
-      }
-      .hero h1 {
-    margin-top: 20rem;
-      }
-      .hero p {
-    font-weight: 0;
-    font-size: 10rem;
-    font-weight: 10rem;
-    text-shadow: 2px 2px 6px rgba(1, 1, 1, 0.6);
-      }
-      .hero .call-to-action {
-    font-size: 2.5rem;
-      } 
+
+    .navbar {
+        background-color: #383e42;
+        padding: 1rem 2%;
+    }
+
+    #hamburger-menu {
+        display: inline-block;
+    }
+
+    .wrapper {
+        margin: -6rem 0 -6rem 0;
+    }
+
+    .navbar .navbar-nav {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background-color: #0c0b0d;
+        width: 30rem;
+        height: 100vh;
+        transition: 0.3s;
+    }
+
+    .navbar .navbar-nav.active {
+        right: 0%;
+    }
+
+    .navbar .navbar-nav a {
+        display: block;
+        margin: 1.5rem;
+        font-size: 2rem;
+    }
+
+    .navbar .navbar-nav a::after {
+        transform-origin: 0 0;
+    }
+
+    .navbar .navbar-nav a:hover::after {
+        transform: scaleX(0.2);
+    }
+
+    .hero {
+        background-image: url("mobile-coffee.png");
+        background-size: cover;
+        background-position: center;
+        height: 100%;
+        width: 100%;
+    }
+
+    .hero .content h1 {
+        margin-top: 20rem;
+        font-size: 3.5em;
+    }
+
+    .hero .content p {
+        font-size: 1.8rem;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero .content .call-to-action {
+        font-size: 2.5rem;
+    }
 }
 
-/* Tablet */
+/* Tablet: max-width 768px */
 @media (max-width: 768px) {
     html {
-        font-size: 55%;
+        font-size: 62.5%;
     }
     .container {
         width: 90%;
@@ -249,7 +284,6 @@ body {
     #hamburger-menu {
         display: inline-block;
     }
-
     .navbar .navbar-nav {
         position: absolute;
         top: 100%;
@@ -259,47 +293,53 @@ body {
         height: 100vh;
         transition: 0.3s;
     }
-
     .navbar .navbar-nav.active {
         right: 0;
     }
     .navbar .navbar-nav a {
-        color: #fff;
         display: block;
         margin: 1.5rem;
-        padding: 0.5;
         font-size: 2rem;
-    }
-    .navbar .navbar-nav a::after {
-        transform-origin: 0 0;
-    }
-    .navbar .navbar-nav a:hover::after {
-        transform: scaleX(0.2);
     }
     .hero {
         background-image: url("mobile-coffee.png");
         background-size: cover;
         background-position: center;
-        max-width: 100%;
-        height: 100%;
+        height: 100%%;
+        width: 100%;
     }
-    .hero h1 {
-        margin-top: -20rem;
+    .hero .content h1 {
+        margin-top: 10rem;
+        font-size: 4em;
     }
-    .hero p {
-        font-weight: 0;
-        font-size: 10rem;
-        font-weight: 10rem;
-        text-shadow: 2px 2px 6px rgba(1, 1, 1, 0.6);
+    .hero .content p {
+        font-size: 2rem;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
     }
-    .hero .call-to-action {
+    .hero .content .call-to-action {
         font-size: 2.5rem;
     }
 }
 
-/* Laptop */
-@media (max-width: 1366px) {
+/* Laptop/ Desktop: min-width 769px */
+@media (min-width: 769px) {
     html {
         font-size: 75%;
+    }
+    .hero {
+        background-image: url("desktop-coffee.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+    }
+    .hero .content h1 {
+        margin-top: 0;
+        font-size: 5em;
+    }
+    .hero .content p {
+        font-size: 1.6rem;
+    }
+    .hero .content .call-to-action {
+        font-size: 1.4rem;
     }
 }
